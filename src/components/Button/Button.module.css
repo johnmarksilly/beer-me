@@ -1,0 +1,33 @@
+.container {
+  border: unset;
+  padding: 0.5rem 1rem;
+  border-radius: 0.4rem;
+  background-color: unset;
+  transition: background-color 0.2s, transform 0.2s;
+
+  font-weight: bold;
+  text-transform: uppercase;
+  background-color: rgb(233, 233, 233);
+}
+
+.container:hover {
+  cursor: pointer;
+  background-color: rgb(218, 218, 218);
+}
+
+.container:active {
+  background-color: rgb(204, 204, 204);
+}
+
+.primary {
+  background-color: #3de697;
+}
+
+.primary:hover {
+  background-color: #33c07e;
+}
+
+.primary:active {
+  background-color: rgb(44, 165, 109);
+  transform: scale(0.98);
+}

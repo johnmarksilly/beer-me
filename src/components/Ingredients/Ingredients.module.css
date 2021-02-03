@@ -1,0 +1,35 @@
+.container {
+}
+
+  .container section:not(:first-child) {
+    margin-top: 4rem;
+  }
+
+  .container .ingredient {
+    display: flex;
+    align-items: center;
+    margin-left: 1rem;
+  }
+
+    .container .ingredient:not(:first-child) {
+      margin-top: 2rem;
+    }
+
+    .container .hops {
+      margin-left: 1rem;
+    }
+
+    .container .ingredient .information {
+      margin-left: 1rem;
+    }
+
+    .container .ingredient .information .chips {
+      margin-top: 0.4rem;
+    }
+
+    .container .ingredient span,
+    .container .ingredient h4 {
+      display: inline-block;
+      margin: 0;
+      margin-left: 0.4rem;
+    }

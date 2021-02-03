@@ -1,0 +1,17 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 1rem;
+}
+
+.container svg {
+  margin-right: 1rem;
+}
+
+.container .textContainer {
+  flex: 1;
+  padding: 1rem;
+  background-color: rgb(240, 240, 240);
+  border-radius: 1rem;
+}
