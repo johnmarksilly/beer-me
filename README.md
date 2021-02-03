@@ -1,6 +1,6 @@
 # BEER(me)
 
-[![Build Status](https://drone.infinitylabs.io/api/badges/status.svg)](https://drone.infinitylabs.io/)
+[![Build Status](https://circleci.com/gh/johnmarksilly/beer-me.svg?style=svg)](https://circleci.com/gh/johnmarksilly/beer-me)
 
 ## Description
 
