@@ -1,0 +1,13 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+  .container > div {
+    margin-bottom: 0.4rem;
+  }
+
+  .container > div:not(:last-child) {
+    margin-right: 0.4rem;
+  }

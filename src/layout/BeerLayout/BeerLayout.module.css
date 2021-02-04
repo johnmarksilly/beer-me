@@ -20,20 +20,6 @@
       max-width: 40rem;
     }
 
-      .container .header .infoContainer .chips {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-      }
-
-      .container .header .infoContainer .chips > div {
-        margin-bottom: 0.4rem;
-      }
-
-      .container .header .infoContainer .chips > div:not(:last-child) {
-        margin-right: 0.4rem;
-      }
-
       .container .header .infoContainer .contributor {
         display: block;
         position: absolute;
@@ -43,8 +29,4 @@
         border: 1px solid #dbdbdb;
         padding: 0.3rem 0.8rem;
         border-radius: 0.8rem;
-      }
-
-      .container .header .infoContainer .pairings p {
-        margin-left: 1rem;
       }

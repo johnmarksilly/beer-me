@@ -1,30 +1,21 @@
 import React from 'react'
-import InfoCard from '../InfoCard/InfoCard'
 import classes from './Method.module.css'
-import { FaThermometerThreeQuarters } from 'react-icons/fa'
+import TemperatureCard from '../TemperatureCard/TemperatureCard'
 
 export default function Method({method}) {
-  const { fermentation } = method
-  
+  const { fermentation, mash_temp } = method
+  const mash = mash_temp[0]
+
   return (
     <div className={classes.container}>
-      <div className={classes.temperature}>
-        <h3>Mash Temperature</h3>
-        {method.mash_temp.map(mash => {
-          const content = `${mash.temp.value}&#176;${mash.temp.unit[0].toUpperCase()} for ${mash.duration} minutes.`;
-          return (
-            <InfoCard key={content} icon={() => <FaThermometerThreeQuarters size={30} />}>
-              <span>{content}</span>
-            </InfoCard>
-          )
-        })}
-      </div>
-      <div>
-        <h3>Fermentation Temperature</h3>
-        <InfoCard icon={() => <FaThermometerThreeQuarters size={30} />}>
-          <span>{fermentation.temp.value}&#176;{fermentation.temp.unit[0].toUpperCase()}</span>
-        </InfoCard>
-      </div>
+      <TemperatureCard 
+        title='Mash Temperature'
+        temperature={mash}
+        className={classes.temperature} />
+      <TemperatureCard
+        title='Fermentation Temperature'
+        temperature={fermentation}
+        className={classes.temperature} />
     </div>
   )
 }

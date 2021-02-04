@@ -39,11 +39,3 @@
   transform: rotate(180);
   box-shadow: 0 0 2rem 2rem white;
 }
-
-.container .info .chips {
-  margin: 0.4rem 0;
-}
-
-.container .info .chips > div:not(:first-child) {
-  margin-left: 0.4rem;
-}

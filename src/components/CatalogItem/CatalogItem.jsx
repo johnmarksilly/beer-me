@@ -3,7 +3,7 @@ import { useHistory } from 'react-router-dom'
 import Button from '../Button/Button'
 import Card from '../Card/Card'
 import CardActions from '../Card/CardActions/CardActions'
-import Chip from '../Chip/Chip'
+import Chips from '../Chips/Chips'
 import classes from './CatalogItem.module.css'
 
 export default function CatalogItem({id, name, description, tagline, abv, ibu, imageSrc}) {
@@ -24,10 +24,7 @@ export default function CatalogItem({id, name, description, tagline, abv, ibu, i
           <div className={classes.bottom}>
           </div>
         </div>
-        <div className={classes.chips}>
-          <Chip title="ABV" content={abv} />
-          <Chip title="IBU" content={ibu || 'N/A'} />
-        </div>
+        <Chips items={[{title:'ABV', content: abv}, {title: 'IBU', content: ibu }]} />
         <CardActions>
           <Button color='primary' onClick={handleClick} style={{width: '100%'}}>View</Button>
         </CardActions>

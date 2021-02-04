@@ -1,20 +1,34 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import Chip from '../../components/Chip/Chip'
+import Chips from '../../components/Chips/Chips'
 import InfoCard from '../../components/InfoCard/InfoCard'
 import Ingredients from '../../components/Ingredients/Ingredients'
 import Method from '../../components/Method/Method'
+import TitledList from '../../components/TitledList/TitledList'
 
 import classes from './BeerLayout.module.css'
 
 export default function BeerLayout() {
   const [beer, setBeer] = useState(undefined)
   const { id } = useParams()
-  
+  const [infoChips, setInfoChips] = useState([])
+  const [batchChips, setBatchChips] = useState([])
+
   useEffect(() => {
     getItem(id).then(beer => {
-      setBeer(beer[0])
+      beer = beer[0]
+      setBeer(beer)
+
+      // Refactor into Chip helper method for brevity
+      setInfoChips([
+        { title: 'ABV', content: beer.abv },
+        { title: 'IBU', content: beer.ibu }
+      ])
+      setBatchChips([
+        { title: 'Volume', content: `${beer.volume.value} ${beer.volume.unit}`},
+        { title: 'Boil Volume', content: `${beer.volume.value} ${beer.volume.unit}`}
+      ])
     })
   }, [id])
   
@@ -35,23 +49,13 @@ export default function BeerLayout() {
               <p>{beer.description}</p>
               <h5 className={classes.contributor}>by {beer.contributed_by}</h5>
               <div>
-                <div className={classes.chips}>
-                  <Chip title='ABV' content={beer.abv} />
-                  <Chip title='IBU' content={beer.ibu} />
-                </div>
+                <Chips items={infoChips} />
                 <h4>Batch Sizing</h4>
-                <div className={classes.chips}>
-                  <Chip title='Volume' content={`${beer.volume.value} ${beer.volume.unit}`} />
-                  <Chip title='Boil Volume' content={`${beer.boil_volume.value} ${beer.boil_volume.unit}`} />
-                </div>
+                <Chips items={batchChips} />
               </div>
-
-              <div className={classes.pairings}>
-                <h4>Food Pairings</h4>
-                { beer.food_pairing.map(p => (
-                  <p key={p}>{p}</p>
-                )) }
-              </div>
+              <TitledList
+                title='Food Pairings'
+                items={beer.food_pairing} />
             </div>
           </div>
           <Method method={beer.method} />
