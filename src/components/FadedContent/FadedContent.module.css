@@ -1,0 +1,14 @@
+.container {
+  position: relative;
+  height: 4rem;
+  overflow: hidden;
+}
+
+  .container .bottom {
+    position: absolute;
+    bottom: 0;
+    height: 0;
+    width: 100%;
+    transform: rotate(180);
+    box-shadow: 0 0 2rem 2rem white;
+  }
