@@ -11,6 +11,26 @@ The Beer(me) app utilizes the PunkAPI brewing recipe API to visualize the beers 
 - Catelog of beer recipes
 - Detailed brewing instruction pages
 
+## Prerequisites
+
+- NodeJS (for package management)
+
+## Usage
+
+1. Download and install dependent packages
+    ```
+    npm install
+    ```
+1. Run React application
+    ```
+    npm start
+    ```
+1. Test the application
+    ```
+    npm test
+    ```
+
+
 ## License
 
 All Rights Reserved.
