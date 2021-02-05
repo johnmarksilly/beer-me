@@ -1,4 +1,3 @@
-import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import Chips from '../../components/Chips/Chips'
@@ -6,6 +5,7 @@ import InfoCard from '../../components/InfoCard/InfoCard'
 import Ingredients from '../../components/Ingredients/Ingredients'
 import Method from '../../components/Method/Method'
 import TitledList from '../../components/TitledList/TitledList'
+import { getBeerById } from '../../services/PunkAPI'
 
 import classes from './BeerLayout.module.css'
 
@@ -16,8 +16,7 @@ export default function BeerLayout() {
   const [batchChips, setBatchChips] = useState([])
 
   useEffect(() => {
-    getItem(id).then(beer => {
-      beer = beer[0]
+    getBeerById(id).then(beer => {
       setBeer(beer)
 
       // Refactor into Chip helper method for brevity
@@ -31,11 +30,6 @@ export default function BeerLayout() {
       ])
     })
   }, [id])
-  
-  async function getItem(id) {
-    const response = await axios.get('https://api.punkapi.com/v2/beers/' + id)
-    return response.data
-  }
   
   return (
     <div className={classes.container}>

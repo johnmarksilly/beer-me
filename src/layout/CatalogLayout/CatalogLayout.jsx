@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import classes from './CatalogLayout.module.css'
 
-import Axios from 'axios'
 import CatalogItem from '../../components/CatalogItem/CatalogItem'
+import { getBeers } from '../../services/PunkAPI'
 
 export default function CatalogLayout() {
   const [items, setItems] = useState([])
@@ -10,17 +10,12 @@ export default function CatalogLayout() {
   
   useEffect(() => {
     if (!init) {
-      getItems().then(beers => {
+      getBeers().then(beers => {
         setItems(beers)
         setInit(true)
       })
     }
   }, [init])
-  
-  async function getItems() {
-    const response = await Axios.get('https://api.punkapi.com/v2/beers')
-    return response.data
-  }
 
   return (
     <div className={classes.container}>
