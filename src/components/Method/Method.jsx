@@ -2,20 +2,17 @@ import React from 'react'
 import classes from './Method.module.css'
 import TemperatureCard from '../TemperatureCard/TemperatureCard'
 
-export default function Method({method}) {
-  const { fermentation, mash_temp } = method
-  const mash = mash_temp[0]
-
+export default function Method({fermentation, mash}) {
   return (
     <div className={classes.container}>
-      <TemperatureCard 
+      { mash && <TemperatureCard 
         title='Mash Temperature'
         temperature={mash}
-        className={classes.temperature} />
-      <TemperatureCard
+        className={classes.temperature} /> }
+      { fermentation && <TemperatureCard
         title='Fermentation Temperature'
         temperature={fermentation}
-        className={classes.temperature} />
+        className={classes.temperature} /> }
     </div>
   )
 }

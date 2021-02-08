@@ -52,7 +52,7 @@ export default function BeerLayout() {
                 items={beer.food_pairing} />
             </div>
           </div>
-          <Method method={beer.method} />
+          <Method mash={beer.method.mash_temp[0]} fermentation={beer.method.fermentation} />
           <InfoCard>{beer.brewers_tips}</InfoCard>
           <Ingredients malt={beer.ingredients.malt} hops={beer.ingredients.hops} yeast={beer.ingredients.yeast} />
         </React.Fragment>

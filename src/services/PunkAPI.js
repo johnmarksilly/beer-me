@@ -16,11 +16,10 @@ export async function getBeerById(id) {
   try {
     const response = await axios.get(`${BASE_URI}/${id}`)
     const { data } = response
-    if (data.length > 0) {
+    if (data !== undefined && data.length > 0) {
       return data[0]
     }
   } catch (error) {
     console.log('Couldn\'t get beers')
   }
-  return [] 
 }
